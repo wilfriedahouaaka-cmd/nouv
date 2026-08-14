@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyeux Anniversaire Ruth ! ✨</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <button id="audioToggleBtn" title="Activer/ couper la musique">🔇</button>
+    <audio id="bgMusic" src="Ronisia - Mélodie (Tatami) (Clip officiel) [uU_lpXyeIsE].mp3" preload="auto"></audio>
+
+    <div class="container">
+
+        <!-- ÉTAPE 0 : Accueil -->
+        <div class="step active dark-step" id="step0">
+            <div class="start-content">
+                <h1 class="start-title">Une surprise t'attend... ✨</h1>
+                <button id="btnStartIntro" class="btn-start">Commencer</button>
+            </div>
+        </div>
+
+        <!-- ÉTAPE 1 : Introduction -->
+        <div class="step light-step" id="step1">
+            <div class="intro-card-clean content-box">
+                <h2 class="title-accueil">Pour toi, Ruth... 💖</h2>
+                <p id="typedMessage" class="poem-text"></p>
+                <div id="bottomButtonContainer" style="display: none;" class="fade-in-btn">
+                    <button id="toStep1Btn" class="btn btn-gold-clean">Découvrir la suite 💕</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ÉTAPE 2 : Question -->
+        <div class="step light-step" id="step2">
+            <div class="content-box text-center">
+                <h2 class="title-accueil">Es-tu prête à découvrir ton attention ?</h2>
+                <p class="subtitle-accueil">Promis, ça en vaut la peine ! 😉</p>
+                <div class="btn-row">
+                    <button id="yesBtn" class="btn btn-oui">OUI ! 🥰</button>
+                    <button id="noBtn" class="btn btn-non">NON 🙈</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ÉTAPE 3 : Photos libres avec effet de chasse mutuelle -->
+        <div class="step light-step" id="step3">
+            <div class="content-box photos-step-box">
+                <h2 class="title-dark">Quelques instants précieux... 📸</h2>
+                <p class="subtitle-dark">Utilise les flèches pour voir les photos se chasser et prendre leur place.</p>
+                
+                <div class="carousel-container-free">
+                    <button id="prevPhotoBtn" class="carousel-nav-btn">❮</button>
+                    
+                    <!-- Zone d'affichage des photos dynamiques -->
+                    <div class="carousel-stage" id="carouselStage">
+                        <div class="free-photo-card" id="carouselCard">
+                            <img id="carouselImg" src="1.jpg" alt="Souvenir">
+                            <div class="photo-caption" id="carouselCaption">Souvenir magique ✨</div>
+                        </div>
+                    </div>
+
+                    <button id="nextPhotoBtn" class="carousel-nav-btn">❯</button>
+                </div>
+
+                <div class="btn-row-center" style="margin-top: 15px;">
+                    <button id="finalBtn" class="btn btn-gold-clean">Découvrir ton message d'anniversaire</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ÉTAPE 4 : Message Final -->
+        <div class="step light-step" id="step4">
+            <div class="intro-birthday-screen" id="introBirthday" style="display: flex;">
+                <h1 class="huge-title">Joyeux Anniversaire Ruth ! 🎉</h1>
+            </div>
+
+            <div class="poem-screen-clean content-box" style="display: flex; gap: 40px; align-items: flex-start;">
+                <!-- Gauche : Poème -->
+                <div style="flex: 1;">
+                    <h2 id="topBirthdayTitle" class="top-birthday-title hidden">Mon message pour toi</h2>
+                    <p id="typedPoom" class="poem-text"></p>
+                </div>
+                
+                <!-- Droite : Message de fin -->
+                <div id="endMessageArea" style="flex: 0.5; display: none; text-align: center;" class="fade-in-btn">
+                    <h3 style="color: #d4af37;">Alors ?</h3>
+                    <p>Est-ce que cette petite surprise t'a plu ? 💖</p>
+                    <button id="btnFinalHeart" class="btn btn-oui">Oui, c'était parfait ! 🥰</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal photo -->
+    <div id="photoModal"><div class="modal-content-wrapper"><img id="modalImg"><div class="modal-text-side"><p id="modalMessage"></p></div></div></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
