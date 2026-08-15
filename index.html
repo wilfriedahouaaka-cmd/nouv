@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joyeux Anniversaire Ruth ! ✨</title>
+    <!-- Importation d'une police moderne et élégante depuis Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </head>
@@ -27,7 +29,8 @@
             <div class="intro-card-clean content-box">
                 <h2 class="title-accueil">Pour toi, Ruth... 💖</h2>
                 <p id="typedMessage" class="poem-text"></p>
-                <div id="bottomButtonContainer" style="display: none;" class="fade-in-btn">
+                <div id="bottomButtonContainer" style="display: none;" class="fade-in-btn btn-row-center">
+                    <button id="prevToStep0" class="btn btn-retour-clean">← Précédent</button>
                     <button id="toStep1Btn" class="btn btn-gold-clean">Découvrir la suite 💕</button>
                 </div>
             </div>
@@ -39,13 +42,14 @@
                 <h2 class="title-accueil">Es-tu prête à découvrir ton attention ?</h2>
                 <p class="subtitle-accueil">Promis, ça en vaut la peine ! 😉</p>
                 <div class="btn-row">
+                    <button id="prevToStep1" class="btn btn-retour-clean">← Précédent</button>
                     <button id="yesBtn" class="btn btn-oui">OUI ! 🥰</button>
                     <button id="noBtn" class="btn btn-non">NON 🙈</button>
                 </div>
             </div>
         </div>
 
-        <!-- ÉTAPE 3 : Photos libres avec effet de chasse mutuelle -->
+        <!-- ÉTAPE 3 : Photos en mouvements libres -->
         <div class="step light-step" id="step3">
             <div class="content-box photos-step-box">
                 <h2 class="title-dark">Quelques instants précieux... 📸</h2>
@@ -54,7 +58,6 @@
                 <div class="carousel-container-free">
                     <button id="prevPhotoBtn" class="carousel-nav-btn">❮</button>
                     
-                    <!-- Zone d'affichage des photos dynamiques -->
                     <div class="carousel-stage" id="carouselStage">
                         <div class="free-photo-card" id="carouselCard">
                             <img id="carouselImg" src="1.jpg" alt="Souvenir">
@@ -65,38 +68,91 @@
                     <button id="nextPhotoBtn" class="carousel-nav-btn">❯</button>
                 </div>
 
-                <div class="btn-row-center" style="margin-top: 15px;">
+                <div class="btn-row-center" style="margin-top: 15px; display: flex; gap: 15px; justify-content: center;">
+                    <button id="prevToStep2" class="btn btn-retour-clean">← Précédent</button>
+                    <button id="toUniversBtn" class="btn btn-gold-clean">Découvrir tes univers ✨</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ÉTAPE 4 : Les Univers & Passions -->
+        <div class="step light-step" id="step4">
+            <div class="content-box univers-step-box">
+                <h2 class="title-accueil">✨ Tes Univers & Passions ✨</h2>
+                <p class="subtitle-accueil" style="text-align: center; margin-bottom: 20px;">Clique sur chaque élément pour découvrir sa photo et son mot doux... 👇</p>
+                
+                <div class="univers-scroll-container">
+                    <div class="category-box">
+                        <h3>🎤 La Playlist & Vibes</h3>
+                        <p class="custom-description">Des mélodies qui tournent en boucle et des ondes qui t'accompagnent :</p>
+                        <div class="items-grid">
+                            <span class="item-tag clickable-tag" data-key="tiakola">Tiakola</span>
+                            <span class="item-tag clickable-tag" data-key="landy">Landy</span>
+                            <span class="item-tag clickable-tag" data-key="gazo">Gazo</span>
+                            <span class="item-tag clickable-tag" data-key="sdm">SDM</span>
+                            <span class="item-tag clickable-tag" data-key="niska">Niska</span>
+                            <span class="item-tag clickable-tag" data-key="leto">Leto</span>
+                        </div>
+                    </div>
+
+                    <div class="category-box">
+                        <h3>⚔️ Les Mondes Animés & Leurs Souffles</h3>
+                        <p class="custom-description">À l'image des redoutables Piliers dans <strong>Demon Slayer</strong>, où chaque souffle demande de la rigueur...</p>
+                        <div class="items-grid">
+                            <span class="item-tag clickable-tag" data-key="demonslayer">Demon Slayer (L'art des Souffles)</span>
+                            <span class="item-tag clickable-tag" data-key="deathnote">Death Note (Esprit Stratégique)</span>
+                        </div>
+                    </div>
+
+                    <div class="category-box">
+                        <h3>📺 Les Séries Cœurs de Cœur</h3>
+                        <p class="custom-description">Des histoires de romances et de dynamiques intenses :</p>
+                        <div class="items-grid">
+                            <span class="item-tag clickable-tag" data-key="offcampus">Off Campus</span>
+                            <span class="item-tag clickable-tag" data-key="leteo">L'été où je suis devenu jolie</span>
+                            <span class="item-tag clickable-tag" data-key="walterboys">Ma vie chez les Walter Boys</span>
+                            <span class="item-tag clickable-tag" data-key="ginnygeorgia">Ginny et Georgia</span>
+                            <span class="item-tag clickable-tag" data-key="maxtonhall">Maxton Hall</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-row-center" style="margin-top: 20px; display: flex; gap: 15px; justify-content: center;">
+                    <button id="prevToStep3" class="btn btn-retour-clean">← Précédent</button>
                     <button id="finalBtn" class="btn btn-gold-clean">Découvrir ton message d'anniversaire</button>
                 </div>
             </div>
         </div>
 
-        <!-- ÉTAPE 4 : Message Final -->
-        <div class="step light-step" id="step4">
+        <!-- ÉTAPE 5 : Message Final -->
+        <div class="step light-step" id="step5">
             <div class="intro-birthday-screen" id="introBirthday" style="display: flex;">
                 <h1 class="huge-title">Joyeux Anniversaire Ruth ! 🎉</h1>
             </div>
 
             <div class="poem-screen-clean content-box" style="display: flex; gap: 40px; align-items: flex-start;">
-                <!-- Gauche : Poème -->
                 <div style="flex: 1;">
                     <h2 id="topBirthdayTitle" class="top-birthday-title hidden">Mon message pour toi</h2>
                     <p id="typedPoom" class="poem-text"></p>
                 </div>
                 
-                <!-- Droite : Message de fin -->
                 <div id="endMessageArea" style="flex: 0.5; display: none; text-align: center;" class="fade-in-btn">
                     <h3 style="color: #d4af37;">Alors ?</h3>
                     <p>Est-ce que cette petite surprise t'a plu ? 💖</p>
                     <button id="btnFinalHeart" class="btn btn-oui">Oui, c'était parfait ! 🥰</button>
+                    <div style="margin-top: 15px;">
+                        <button id="prevToStep4" class="btn btn-retour-clean">← Retour aux univers</button>
+                    </div>
                 </div>
             </div>
         </div>
 
     </div>
 
-    <!-- Modal photo -->
-    <div id="photoModal"><div class="modal-content-wrapper"><img id="modalImg"><div class="modal-text-side"><p id="modalMessage"></p></div></div></div>
+    <!-- Modale générale -->
+    <div id="photoModal">
+        <div class="modal-content-wrapper" id="modalWrapper"></div>
+    </div>
 
     <script src="script.js"></script>
 </body>

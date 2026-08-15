@@ -55,8 +55,14 @@ document.addEventListener("DOMContentLoaded", () => {
         typeWriter();
     }
 
+    const prevToStep0 = document.getElementById("prevToStep0");
+    if (prevToStep0) prevToStep0.addEventListener("click", () => showStep(0));
+
     const toStep1Btn = document.getElementById("toStep1Btn");
     if (toStep1Btn) toStep1Btn.addEventListener("click", () => showStep(2));
+
+    const prevToStep1 = document.getElementById("prevToStep1");
+    if (prevToStep1) prevToStep1.addEventListener("click", () => showStep(1));
 
     const yesBtn = document.getElementById("yesBtn");
     const noBtn = document.getElementById("noBtn");
@@ -78,6 +84,9 @@ document.addEventListener("DOMContentLoaded", () => {
         noBtn.addEventListener("click", () => alert("Interdit de cliquer sur Non ! 😜"));
     }
 
+    const prevToStep2 = document.getElementById("prevToStep2");
+    if (prevToStep2) prevToStep2.addEventListener("click", () => showStep(2));
+
     const photosData = [
         { src: "1.jpg", caption: "Souvenir magique ✨", message: "Il y a des regards qui marquent une vie entière. ✨" },
         { src: "2.jpg", caption: "Douceur infinie 💖", message: "Une complicité silencieuse et tellement forte. 💖" },
@@ -92,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const enterAnimations = [
         'anim-from-left', 'anim-from-right', 'anim-from-top', 'anim-from-bottom', 
         'anim-from-top-left', 'anim-from-top-right', 'anim-from-bottom-left', 'anim-from-bottom-right',
-        'anim-zoom-from-back', 'anim-overlay-screen'
+        'anim-zoom-from-back'
     ];
     
     const exitAnimations = [
@@ -106,16 +115,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateCarousel() {
         const oldCard = carouselStage.querySelector(".free-photo-card");
-
         const randomExit = exitAnimations[Math.floor(Math.random() * exitAnimations.length)];
         const randomEnter = enterAnimations[Math.floor(Math.random() * enterAnimations.length)];
 
         if (oldCard) {
-            oldCard.classList.add(randomExit);
-            // Délai augmenté à 1300ms pour bien voir l'ancienne photo se faire chasser
-            setTimeout(() => {
-                oldCard.remove();
-            }, 1300);
+            oldCard.className = `free-photo-card ${randomExit}`;
+            setTimeout(() => { oldCard.remove(); }, 1000);
         }
 
         const newCard = document.createElement("div");
@@ -126,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
 
         newCard.addEventListener("click", () => {
-            openModal(photosData[currentPhotoIndex]);
+            openPhotoModal(photosData[currentPhotoIndex]);
         });
 
         carouselStage.appendChild(newCard);
@@ -149,24 +154,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const initialCard = document.getElementById("carouselCard");
     if (initialCard) {
         initialCard.addEventListener("click", () => {
-            openModal(photosData[currentPhotoIndex]);
+            openPhotoModal(photosData[currentPhotoIndex]);
         });
     }
 
     const photoModal = document.getElementById("photoModal");
-    const modalImg = document.getElementById("modalImg");
-    const modalMessageEl = document.getElementById("modalMessage");
+    const modalWrapper = document.getElementById("modalWrapper");
     let typingTimer = null;
 
-    function openModal(data) {
-        modalImg.className = "";
-        void modalImg.offsetWidth;
-        modalImg.classList.add('anim-from-top');
-
-        modalImg.src = data.src;
-        modalMessageEl.textContent = "";
+    function openPhotoModal(data) {
+        modalWrapper.innerHTML = `
+            <img id="modalImg" src="${data.src}" class="anim-from-top">
+            <div class="modal-text-side">
+                <p id="modalMessage" class="modal-poem-note"></p>
+            </div>
+        `;
         photoModal.style.display = "flex";
 
+        const modalMessageEl = document.getElementById("modalMessage");
         if (typingTimer) clearTimeout(typingTimer);
         let charIndex = 0;
         function typeModal() {
@@ -178,6 +183,92 @@ document.addEventListener("DOMContentLoaded", () => {
         typeModal();
     }
 
+    // Dictionnaire mis à jour avec les fichiers exacts : gazo.jpg, sdm.jpg, demon-slayer.jpg, ginny&georgia.jpg
+    const universData = {
+        tiakola: {
+            img: "tiakola.jpg",
+            text: "🎤 **Tiakola & les Vibes**\n\nDes mélodies rythmées qui entraînent, une voix unique qui ambiance tes journées et apporte cette énergie solaire que tu adores. ✨"
+        },
+        landy: {
+            img: "landy.jpg",
+            text: "🔥 **Landy**\n\nDes prods lourdes et des textes percutants qui cadrent parfaitement avec ton goût pour l'excellence et le style."
+        },
+        gazo: {
+            img: "gazo.jpg",
+            text: "⚡ **Gazo**\n\nLa drill, l'énergie pure, l'assurance... Une vibe qui ne lâche rien, à l'image de ton caractère battant !"
+        },
+        sdm: {
+            img: "sdm.png",
+            text: "⚡ **SDM**\n\nDes morceaux puissants qui marquent les esprits et donnent le ton de ta force au quotidien."
+        },
+        niska: {
+            img: "niska.jpg",
+            text: "🔥 **Niska**\n\nDu punch, du rythme et du charisme. Impossible de ne pas bouger la tête quand ça démarre !"
+        },
+        leto: {
+            img: "leto.jpg",
+            text: "⭐ **Leto**\n\nDes mélodies mélancoliques et Trap qui capturent à la perfection ces moments de détente en solo."
+        },
+        demonslayer: {
+            img: "demon-slayer.jpg",
+            text: "⚔️ **Demon Slayer - L'art des Souffles**\n\nÀ l'image de Tanjirô et des Piliers, tu possèdes cette résilience incroyable. Même face aux obstacles, ton souffle intérieur trouve toujours la force de transpercer les ténèbres."
+        },
+        deathnote: {
+            img: "death-note.jpg",
+            text: "📓 **Death Note - Esprit Stratégique**\n\nUne intelligence aiguisée, une observation fine de tout ce qui t'entoure. Rien ne t'échappe quand tu as une idée en tête."
+        },
+        offcampus: {
+            img: "off-campus.jpg",
+            text: "📚 **Off Campus**\n\nDes histoires d'amour intenses, des sportifs attachants et des romances qui font battre le cœur un peu plus fort."
+        },
+        leteo: {
+            img: "l'ete.jpg",
+            text: "🌊 **L'été où je suis devenu jolie**\n\nLa douceur des souvenirs d'été, les choix compliqués du cœur et la magie des premiers grands émois."
+        },
+        walterboys: {
+            img: "ma-vie.jpg",
+            text: "🏡 **Ma vie chez les Walter Boys**\n\nLe chaos d'une grande famille, l'amitié profonde et l'amour sous toutes ses formes, simple et sincère."
+        },
+        ginnygeorgia: {
+            img: "ginny&georgia.jpg",
+            text: "🔥 **Ginny et Georgia**\n\nDes relations fusionnelles, complexes, pleines de mordant et d'une intensité bouleversante."
+        },
+        maxtonhall: {
+            img: "maxton.jpg",
+            text: "👑 **Maxton Hall**\n\nL'élégance, les apparences qui volent en éclats et une romance incandescente entre deux mondes que tout oppose."
+        }
+    };
+
+    function openUniversModal(key) {
+        const item = universData[key] || { img: "1.jpg", text: "Un univers précieux qui fait partie de toi. ✨" };
+        
+        modalWrapper.innerHTML = `
+            <img id="modalImg" src="${item.img}" class="anim-from-top">
+            <div class="modal-text-side">
+                <p id="modalMessage" class="modal-poem-note"></p>
+            </div>
+        `;
+        photoModal.style.display = "flex";
+
+        const modalMessageEl = document.getElementById("modalMessage");
+        if (typingTimer) clearTimeout(typingTimer);
+        let charIndex = 0;
+        function typeModal() {
+            if (charIndex < item.text.length) {
+                modalMessageEl.textContent += item.text.charAt(charIndex++);
+                typingTimer = setTimeout(typeModal, 25);
+            }
+        }
+        typeModal();
+    }
+
+    document.querySelectorAll(".clickable-tag").forEach(tag => {
+        tag.addEventListener("click", () => {
+            const key = tag.getAttribute("data-key");
+            openUniversModal(key);
+        });
+    });
+
     if (photoModal) {
         photoModal.addEventListener("click", () => { 
             photoModal.style.display = "none"; 
@@ -185,13 +276,22 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    const toUniversBtn = document.getElementById("toUniversBtn");
+    if (toUniversBtn) toUniversBtn.addEventListener("click", () => showStep(4));
+
+    const prevToStep3 = document.getElementById("prevToStep3");
+    if (prevToStep3) prevToStep3.addEventListener("click", () => showStep(3));
+
     const finalBtn = document.getElementById("finalBtn");
     if (finalBtn) {
         finalBtn.addEventListener("click", () => {
-            showStep(4);
+            showStep(5);
             startBirthdaySequence();
         });
     }
+
+    const prevToStep4 = document.getElementById("prevToStep4");
+    if (prevToStep4) prevToStep4.addEventListener("click", () => showStep(4));
 
     const poemText = `Une étoile a choisi de briller sur la colline.
 Gbedea deuh Ruth, ton sourire est un doux poème,

@@ -13,11 +13,12 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: #fff;
     overflow-x: hidden;
     background: url('gh.png') no-repeat center center fixed;
     background-size: cover;
+    -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -53,7 +54,7 @@ html, body {
 
 .light-step {
     background: rgba(0, 0, 0, 0.45);
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(4px);
 }
 
 .content-box {
@@ -101,7 +102,7 @@ html, body {
 .start-title {
     font-size: 2.2rem;
     color: #ffcc00;
-    font-weight: bold;
+    font-weight: 700;
     text-shadow: 0 2px 10px rgba(0,0,0,0.9);
     margin-bottom: 20px;
 }
@@ -112,10 +113,15 @@ html, body {
     border: none;
     padding: 12px 30px;
     font-size: 1.1rem;
-    font-weight: bold;
+    font-weight: 600;
     border-radius: 50px;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.btn-start:hover {
+    transform: scale(1.05);
 }
 
 .intro-card-clean {
@@ -128,7 +134,8 @@ html, body {
 
 .poem-text {
     font-size: 1.05rem;
-    line-height: 1.5;
+    font-weight: 400;
+    line-height: 1.6;
     color: #ffffff;
     text-shadow: 0 2px 10px rgba(0,0,0,0.9);
     white-space: pre-line;
@@ -146,13 +153,15 @@ html, body {
 
 .title-accueil {
     font-size: 2rem;
+    font-weight: 700;
     color: #ffcc00;
     text-shadow: 0 2px 10px rgba(0,0,0,0.9);
     margin-bottom: 10px;
 }
 
 .subtitle-accueil {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    font-weight: 400;
     margin-bottom: 25px;
     text-shadow: 0 2px 8px rgba(0,0,0,0.9);
 }
@@ -160,11 +169,13 @@ html, body {
 .btn-row {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
+    gap: 15px;
 }
 
 .title-dark {
     font-size: 1.5rem;
+    font-weight: 700;
     color: #ffcc00;
     text-shadow: 0 2px 10px rgba(0,0,0,0.9);
     margin-bottom: 2px;
@@ -172,6 +183,7 @@ html, body {
 
 .subtitle-dark {
     font-size: 0.9rem;
+    font-weight: 400;
     margin-bottom: 12px;
     text-shadow: 0 2px 8px rgba(0,0,0,0.9);
 }
@@ -221,8 +233,8 @@ html, body {
 
 .free-photo-card {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 280px;
+    height: 350px;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
@@ -232,22 +244,6 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.free-photo-card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-size: cover;
-    background-position: center;
-    filter: blur(12px) brightness(0.4);
-    z-index: 1;
-}
-
-.free-photo-card:hover {
-    box-shadow: 0 15px 35px rgba(255, 204, 0, 0.4);
-    border-color: rgba(255, 204, 0, 0.8);
 }
 
 .free-photo-card img {
@@ -271,7 +267,7 @@ html, body {
     background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.4));
     color: #ffcc00;
     font-size: 0.9rem;
-    font-weight: bold;
+    font-weight: 600;
     text-align: center;
     text-shadow: 0 1px 3px rgba(0,0,0,0.9);
     z-index: 3;
@@ -286,14 +282,10 @@ html, body {
     transform: translateY(0);
 }
 
-.btn-row-center {
-    margin-top: 5px;
-}
-
 .btn {
-    padding: 9px 22px;
+    padding: 10px 22px;
     font-size: 0.95rem;
-    font-weight: bold;
+    font-weight: 600;
     border-radius: 30px;
     border: none;
     cursor: pointer;
@@ -306,9 +298,30 @@ html, body {
     box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
 }
 
+.btn-oui:hover, .btn-gold-clean:hover {
+    background-color: #ffd633;
+    transform: translateY(-2px);
+}
+
 .btn-non {
     background-color: #ffffff;
     color: #111;
+}
+
+.btn-retour-clean {
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffcc00;
+    border: 1px solid rgba(255, 204, 0, 0.6);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-retour-clean:hover {
+    background: rgba(255, 204, 0, 0.15);
+    border-color: #ffcc00;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 204, 0, 0.2);
 }
 
 .intro-birthday-screen {
@@ -317,6 +330,7 @@ html, body {
 
 .huge-title {
     font-size: 2.3rem;
+    font-weight: 700;
     color: #ffcc00;
     text-shadow: 0 2px 10px rgba(0,0,0,0.9);
     animation: pulseTitle 1.5s infinite alternate;
@@ -340,102 +354,168 @@ html, body {
 
 .top-birthday-title {
     font-size: 1.8rem;
+    font-weight: 700;
     color: #ffcc00;
     text-shadow: 0 2px 10px rgba(0,0,0,0.9);
     margin-bottom: 15px;
     animation: fadeInBtn 0.8s ease-out forwards;
 }
 
-/* --- ANIMATIONS D'ENTRÉE (PLUS DOUCES ET PLUS LONGUES) --- */
+.univers-step-box {
+    max-width: 800px;
+    padding: 10px 15px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.univers-scroll-container {
+    width: 100%;
+    max-height: 55vh;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.univers-scroll-container::-webkit-scrollbar {
+    display: block;
+    width: 4px;
+}
+
+.univers-scroll-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 204, 0, 0.4);
+    border-radius: 4px;
+}
+
+.category-box {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 12px;
+    border-left: 4px solid #ffcc00;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.category-box h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: #ffcc00;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.8);
+}
+
+.custom-description {
+    color: #e0e0e0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.items-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.item-tag {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 204, 0, 0.3);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.item-tag:hover {
+    background: #ffcc00;
+    color: #111;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 204, 0, 0.4);
+}
+
 @keyframes slideFromLeft {
-    0% { transform: translateX(-120vw) scale(0.6); opacity: 0; }
-    100% { transform: translateX(0) scale(1); opacity: 1; }
+    0% { transform: translateX(-120vw) translateY(40px) scale(0.6) rotate(-15deg); opacity: 0; }
+    100% { transform: translateX(0) translateY(0) scale(1) rotate(0deg); opacity: 1; }
 }
 @keyframes slideFromRight {
-    0% { transform: translateX(120vw) scale(0.6); opacity: 0; }
-    100% { transform: translateX(0) scale(1); opacity: 1; }
+    0% { transform: translateX(120vw) translateY(-40px) scale(0.6) rotate(15deg); opacity: 0; }
+    100% { transform: translateX(0) translateY(0) scale(1) rotate(0deg); opacity: 1; }
 }
 @keyframes slideFromTop {
-    0% { transform: translateY(-120vh) scale(0.6); opacity: 0; }
-    100% { transform: translateY(0) scale(1); opacity: 1; }
+    0% { transform: translateY(-120vh) translateX(-30px) scale(0.6) rotate(-10deg); opacity: 0; }
+    100% { transform: translateX(0) translateY(0) scale(1) rotate(0deg); opacity: 1; }
 }
 @keyframes slideFromBottom {
-    0% { transform: translateY(120vh) scale(0.6); opacity: 0; }
-    100% { transform: translateY(0) scale(1); opacity: 1; }
+    0% { transform: translateY(120vh) translateX(30px) scale(0.6) rotate(10deg); opacity: 0; }
+    100% { transform: translateX(0) translateY(0) scale(1) rotate(0deg); opacity: 1; }
 }
 @keyframes slideFromTopLeft {
-    0% { transform: translate(-120vw, -120vh) scale(0.6); opacity: 0; }
-    100% { transform: translate(0, 0) scale(1); opacity: 1; }
+    0% { transform: translateX(-100vw) translateY(-100vh) scale(0.5) rotate(-25deg); opacity: 0; }
+    100% { transform: translateX(0) translateY(0) scale(1) rotate(0deg); opacity: 1; }
 }
 @keyframes slideFromTopRight {
-    0% { transform: translate(120vw, -120vh) scale(0.6); opacity: 0; }
-    100% { transform: translate(0, 0) scale(1); opacity: 1; }
+    0% { transform: translateX(100vw) translateY(-100vh) scale(0.5) rotate(25deg); opacity: 0; }
+    100% { transform: translateX(0) translateY(0) scale(1) rotate(0deg); opacity: 1; }
 }
 @keyframes slideFromBottomLeft {
-    0% { transform: translate(-120vw, 120vh) scale(0.6); opacity: 0; }
-    100% { transform: translate(0, 0) scale(1); opacity: 1; }
+    0% { transform: translateX(-100vw) translateY(100vh) scale(0.5) rotate(25deg); opacity: 0; }
+    100% { transform: translateX(0) translateY(0) scale(1) rotate(0deg); opacity: 1; }
 }
 @keyframes slideFromBottomRight {
-    0% { transform: translate(120vw, 120vh) scale(0.6); opacity: 0; }
-    100% { transform: translate(0, 0) scale(1); opacity: 1; }
+    0% { transform: translateX(100vw) translateY(100vh) scale(0.5) rotate(-25deg); opacity: 0; }
+    100% { transform: translateX(0) translateY(0) scale(1) rotate(0deg); opacity: 1; }
 }
-
 @keyframes zoomFromBack {
-    0% { transform: scale(0.1); opacity: 0; filter: blur(10px); }
-    100% { transform: scale(1); opacity: 1; filter: blur(0); }
+    0% { transform: scale(0.1) rotate(0deg); opacity: 0; filter: blur(10px); }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; filter: blur(0); }
 }
 
-@keyframes overlayScreen {
-    0% { transform: scale(1.6); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-/* --- ANIMATIONS DE SORTIE (L'ANCIENNE PHOTO SE FAIT CLAIREMENT CHASSER) --- */
 @keyframes slideToRight {
     0% { transform: translateX(0) scale(1); opacity: 1; }
-    100% { transform: translateX(120vw) scale(0.8); opacity: 0; }
+    100% { transform: translateX(120vw) translateY(50px) scale(0.6) rotate(20deg); opacity: 0; }
 }
 @keyframes slideToLeft {
     0% { transform: translateX(0) scale(1); opacity: 1; }
-    100% { transform: translateX(-120vw) scale(0.8); opacity: 0; }
+    100% { transform: translateX(-120vw) translateY(-50px) scale(0.6) rotate(-20deg); opacity: 0; }
 }
 @keyframes slideToTop {
     0% { transform: translateY(0) scale(1); opacity: 1; }
-    100% { transform: translateY(-120vh) scale(0.8); opacity: 0; }
+    100% { transform: translateY(-120vh) scale(0.6) rotate(-15deg); opacity: 0; }
 }
 @keyframes slideToBottom {
     0% { transform: translateY(0) scale(1); opacity: 1; }
-    100% { transform: translateY(120vh) scale(0.8); opacity: 0; }
+    100% { transform: translateY(120vh) scale(0.6) rotate(15deg); opacity: 0; }
 }
 @keyframes zoomToBack {
     0% { transform: scale(1); opacity: 1; }
     100% { transform: scale(0.1); opacity: 0; filter: blur(10px); }
 }
 @keyframes fadeOut {
-    0% { opacity: 1; transform: scale(1); }
-    100% { opacity: 0; transform: scale(0.85); }
+    0% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
-/* Durée augmentée à 1.3 secondes pour ralentir les mouvements et accentuer l'effet de chasse */
-.anim-from-left { animation: slideFromLeft 1.3s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-.anim-from-right { animation: slideFromRight 1.3s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-.anim-from-top { animation: slideFromTop 1.3s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-.anim-from-bottom { animation: slideFromBottom 1.3s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-.anim-from-top-left { animation: slideFromTopLeft 1.3s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-.anim-from-top-right { animation: slideFromTopRight 1.3s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-.anim-from-bottom-left { animation: slideFromBottomLeft 1.3s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-.anim-from-bottom-right { animation: slideFromBottomRight 1.3s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-.anim-zoom-from-back { animation: zoomFromBack 1.3s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-.anim-overlay-screen { animation: overlayScreen 1.3s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+.anim-from-left { animation: slideFromLeft 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+.anim-from-right { animation: slideFromRight 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+.anim-from-top { animation: slideFromTop 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+.anim-from-bottom { animation: slideFromBottom 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+.anim-from-top-left { animation: slideFromTopLeft 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+.anim-from-top-right { animation: slideFromTopRight 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+.anim-from-bottom-left { animation: slideFromBottomLeft 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+.anim-from-bottom-right { animation: slideFromBottomRight 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+.anim-zoom-from-back { animation: zoomFromBack 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
 
-.anim-to-right { animation: slideToRight 1.3s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-.anim-to-left { animation: slideToLeft 1.3s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-.anim-to-top { animation: slideToTop 1.3s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-.anim-to-bottom { animation: slideToBottom 1.3s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-.anim-zoom-to-back { animation: zoomToBack 1.3s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-.anim-fade-out { animation: fadeOut 1.3s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+.anim-to-right { animation: slideToRight 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+.anim-to-left { animation: slideToLeft 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+.anim-to-top { animation: slideToTop 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+.anim-to-bottom { animation: slideToBottom 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+.anim-zoom-to-back { animation: zoomToBack 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+.anim-fade-out { animation: fadeOut 0.9s ease forwards; }
 
-/* Modal photo */
 #photoModal {
     display: none;
     position: fixed;
@@ -487,7 +567,7 @@ html, body {
 
 .modal-poem-note {
     color: #ffcc00;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     font-weight: 500;
     line-height: 1.6;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
@@ -496,16 +576,6 @@ html, body {
 }
 
 @media (max-width: 768px) {
-    .carousel-stage {
-        width: 250px;
-        height: 300px;
-    }
-    .carousel-nav-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-    }
-    
     #photoModal {
         align-items: flex-start;
         padding: 15px 10px;
@@ -516,9 +586,6 @@ html, body {
         max-height: none;
         gap: 15px;
         padding: 10px 0;
-        background: transparent;
-        border: none;
-        box-shadow: none;
     }
     #modalImg {
         max-width: 85%;
