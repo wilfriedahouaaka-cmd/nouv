@@ -183,7 +183,6 @@ document.addEventListener("DOMContentLoaded", () => {
         typeModal();
     }
 
-    // Dictionnaire mis à jour avec les fichiers exacts : gazo.jpg, sdm.jpg, demon-slayer.jpg, ginny&georgia.jpg
     const universData = {
         tiakola: {
             img: "tiakola.jpg",
@@ -351,6 +350,24 @@ Que la route soit douce et ton éclat total ma très chère fleur. 💖`;
             }());
             btnFinalHeart.textContent = "Merci mon cœur ! 💖✨";
             btnFinalHeart.disabled = true;
+        });
+    }
+
+    // --- GESTION DE L'ENVOI DU MESSAGE DIRECT (WhatsApp) ---
+    const btnSendMsg = document.getElementById("btnSendMsg");
+    if (btnSendMsg) {
+        btnSendMsg.addEventListener("click", () => {
+            const messageInput = document.getElementById("userCustomMessage");
+            const textValue = messageInput ? messageInput.value.trim() : "";
+            
+            if (textValue === "") {
+                alert("Écris un petit mot avant d'envoyer ! 😊");
+                return;
+            }
+
+            const encodedMessage = encodeURIComponent(`Coucou ! Voici mon message de ton site d'anniversaire : "${textValue}"`);
+            const whatsappUrl = `https://wa.me/2250143928168?text=${encodedMessage}`;
+            window.open(whatsappUrl, "_blank");
         });
     }
 });

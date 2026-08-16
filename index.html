@@ -124,7 +124,7 @@
             </div>
         </div>
 
-        <!-- ÉTAPE 5 : Message Final -->
+        <!-- ÉTAPE 5 : Message Final & Boîte de message direct -->
         <div class="step light-step" id="step5">
             <div class="intro-birthday-screen" id="introBirthday" style="display: flex;">
                 <h1 class="huge-title">Joyeux Anniversaire Ruth ! 🎉</h1>
@@ -139,7 +139,15 @@
                 <div id="endMessageArea" style="flex: 0.5; display: none; text-align: center;" class="fade-in-btn">
                     <h3 style="color: #d4af37;">Alors ?</h3>
                     <p>Est-ce que cette petite surprise t'a plu ? 💖</p>
-                    <button id="btnFinalHeart" class="btn btn-oui">Oui, c'était parfait ! 🥰</button>
+                    <button id="btnFinalHeart" class="btn btn-oui" style="margin-bottom: 15px; width: 100%;">Oui, c'était parfait ! 🥰</button>
+                    
+                    <!-- Champ de texte et bouton d'envoi direct à la place du Snap -->
+                    <div style="background: rgba(0,0,0,0.4); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,204,0,0.3); margin-top: 10px;">
+                        <p style="font-size: 0.9rem; margin-bottom: 8px; color: #ffcc00;">Laisse-moi un petit mot doux... 💌</p>
+                        <textarea id="userCustomMessage" placeholder="Écris ton message ici..." rows="3" style="width: 100%; border-radius: 8px; padding: 10px; background: rgba(0,0,0,0.6); color: #fff; border: 1px solid rgba(255,204,0,0.5); margin-bottom: 10px; font-family: 'Montserrat', sans-serif; resize: none;"></textarea>
+                        <button id="btnSendMsg" class="btn btn-gold-clean" style="width: 100%;">Envoyer mon message 🚀</button>
+                    </div>
+
                     <div style="margin-top: 15px;">
                         <button id="prevToStep4" class="btn btn-retour-clean">← Retour aux univers</button>
                     </div>
